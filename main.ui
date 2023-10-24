@@ -28,7 +28,7 @@
        <enum>QLayout::SetMaximumSize</enum>
       </property>
       <item>
-       <layout class="QVBoxLayout" name="verticalLayout_10" stretch="1,3,48">
+       <layout class="QVBoxLayout" name="verticalLayout_10" stretch="1,48">
         <property name="spacing">
          <number>5</number>
         </property>
@@ -43,12 +43,15 @@
           <property name="minimumSize">
            <size>
             <width>0</width>
-            <height>50</height>
+            <height>48</height>
            </size>
           </property>
           <property name="font">
            <font>
-            <pointsize>9</pointsize>
+            <family>Arial</family>
+            <pointsize>12</pointsize>
+            <weight>50</weight>
+            <bold>false</bold>
            </font>
           </property>
           <property name="cursor">
@@ -58,65 +61,17 @@
            <enum>Qt::StrongFocus</enum>
           </property>
           <property name="text">
-           <string>Open Folder</string>
+           <string> Open Folder</string>
           </property>
-          <property name="autoDefault">
-           <bool>false</bool>
+          <property name="icon">
+           <iconset>
+            <normaloff>icons/folder-open.png</normaloff>icons/folder-open.png</iconset>
           </property>
-          <property name="default">
-           <bool>false</bool>
-          </property>
-          <property name="flat">
-           <bool>false</bool>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <widget class="QLabel" name="label_4">
-          <property name="minimumSize">
+          <property name="iconSize">
            <size>
-            <width>0</width>
-            <height>40</height>
+            <width>32</width>
+            <height>32</height>
            </size>
-          </property>
-          <property name="maximumSize">
-           <size>
-            <width>16777215</width>
-            <height>40</height>
-           </size>
-          </property>
-          <property name="font">
-           <font>
-            <family>Sans Serif</family>
-            <pointsize>10</pointsize>
-            <weight>50</weight>
-            <bold>false</bold>
-            <kerning>true</kerning>
-           </font>
-          </property>
-          <property name="layoutDirection">
-           <enum>Qt::LeftToRight</enum>
-          </property>
-          <property name="frameShape">
-           <enum>QFrame::NoFrame</enum>
-          </property>
-          <property name="frameShadow">
-           <enum>QFrame::Sunken</enum>
-          </property>
-          <property name="lineWidth">
-           <number>1</number>
-          </property>
-          <property name="text">
-           <string>List of Images</string>
-          </property>
-          <property name="textFormat">
-           <enum>Qt::AutoText</enum>
-          </property>
-          <property name="alignment">
-           <set>Qt::AlignBottom|Qt::AlignHCenter</set>
-          </property>
-          <property name="margin">
-           <number>4</number>
           </property>
          </widget>
         </item>
@@ -158,6 +113,53 @@
           <property name="spacing">
            <number>2</number>
           </property>
+          <item>
+           <widget class="QLabel" name="feather_lb">
+            <property name="font">
+             <font>
+              <family>Arial</family>
+              <pointsize>14</pointsize>
+              <weight>75</weight>
+              <bold>true</bold>
+             </font>
+            </property>
+            <property name="text">
+             <string>Feather:  </string>
+            </property>
+            <property name="margin">
+             <number>10</number>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QSpinBox" name="feather_sb">
+            <property name="font">
+             <font>
+              <family>Arial</family>
+              <pointsize>14</pointsize>
+             </font>
+            </property>
+            <property name="value">
+             <number>0</number>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <spacer name="horizontalSpacer_4">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeType">
+             <enum>QSizePolicy::Maximum</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>20</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
           <item>
            <widget class="QToolButton" name="prev_im">
             <property name="cursor">
@@ -274,7 +276,7 @@
              <cursorShape>PointingHandCursor</cursorShape>
             </property>
             <property name="toolTip">
-             <string>Process All Images</string>
+             <string>Process and Save All Images</string>
             </property>
             <property name="styleSheet">
              <string notr="true">background-color:darkGray</string>

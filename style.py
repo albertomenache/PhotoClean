@@ -9,15 +9,16 @@ style = """
 QToolTip
 {
      border: 1px solid black;
-     background-color: #ffa02f;
+     background-color: #ffffff;
+     color: #000000;
      padding: 1px;
      border-radius: 3px;
-     opacity: 100;
+     /*opacity: 100;*/
 }
 
 QWidget
 {
-    font-size:12pt;
+    font-size:14pt;
     color: #b1b1b1;
     background-color: #212122;
 }
@@ -124,7 +125,6 @@ QPushButton
     border-style: solid;
     border-radius: 6;
     padding: 3px;
-    font-size: 12px;
     padding-left: 5px;
     padding-right: 5px;
 }
