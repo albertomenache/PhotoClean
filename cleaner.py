@@ -42,7 +42,7 @@ def processImage(imagePath, valid=True, feather=0, img=None):
     height, width = img.shape[0], img.shape[1]
     
     hsv = cv2.cvtColor(img, cv2.COLOR_BGR2HSV)
-    edges = cv2.inRange(hsv, (75, 0, 0), (120, 255,255))
+    edges = cv2.inRange(hsv, (75, 0, 0), (120, 255,255))  ## This HUE is currently hard-coded to CYAN. Can be replaced by a widget
 
     mask = np.zeros((height, width, 1), np.uint8)
 
