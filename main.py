@@ -11,7 +11,20 @@ import style
 import cv2
 from pillow_heif import register_heif_opener
 
-gui = uic.loadUiType("main.ui")[0]     # load UI file designed in Qt Designer
+def resource_path(relative_path):
+    """ Get absolute path to resource, works for dev and for PyInstaller """
+    try:
+        # PyInstaller creates a temp folder and stores path in _MEIPASS
+        base_path = sys._MEIPASS
+    except Exception:
+        #base_path = os.path.abspath(".")
+        base_path = os.path.dirname(os.path.realpath(__file__))
+
+    return os.path.join(base_path, relative_path)
+
+mainForm = resource_path("main.ui")
+
+gui = uic.loadUiType(mainForm)[0]     # load UI file designed in Qt Designer
 VALID_FORMAT = ('.BMP', '.GIF', '.JPG', '.JPEG', '.PNG', '.PBM', '.PGM', '.PPM', '.TIFF', '.XBM')  # Image formats supported by Qt
 OTHER_FORMAT = ('.HEIC')
 
