@@ -7,7 +7,8 @@ Cleaner for photos with sensor line artifacts
 Parts of the UI are based on a modified version of https://github.com/ap193uee/PyQt-Image-Viewer
 
 To build into a windows executable use:
-c://<path-to-python3>//Scripts//pyinstaller.exe --noconfirm --onefile --hide-console hide-early --add-data "<path-to-project>//PhotoClean//main.ui";. --name "PhotoClean" "<path-to-project>//PhotoClean//main.py"
+
+/<path-to-python3>/Scripts/pyinstaller.exe --noconfirm --onefile --hide-console hide-early --add-data "/<path-to-project>\PhotoClean\main.ui";. --name "PhotoClean" "/<path-to-project>/PhotoClean/main.py"
 
 TODOS:
 - Add Hue widget
