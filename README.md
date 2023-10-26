@@ -8,7 +8,13 @@ Parts of the UI are based on a modified version of https://github.com/ap193uee/P
 
 To build into a windows executable use:
 
-/<path-to-python3>/Scripts/pyinstaller.exe --noconfirm --onefile --hide-console hide-early --add-data "/<path-to-project>\PhotoClean\main.ui";. --name "PhotoClean" "/<path-to-project>/PhotoClean/main.py"
+pyinstaller.exe PhotoClean.spec
+
+which is almost the same as:
+
+pyinstaller.exe --noconfirm --onefile --hide-console hide-early --add-data "main.ui";. --name "PhotoClean" "main.py"
+
+except I added the image folder information to PhotoClean.spec
 
 TODOS:
 - Add Hue widget
