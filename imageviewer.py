@@ -17,10 +17,11 @@ class ImageViewer:
 
     def onResize(self):
         ''' things to do when qlabel_image is resized '''
-        self.qpixmap = QPixmap(self.qlabel_image.size())
-        self.qpixmap.fill(QtCore.Qt.darkGray)
-        self.qimage_scaled = self.qimage.scaled(self.qlabel_image.width(), self.qlabel_image.height(), QtCore.Qt.KeepAspectRatio)
-        self.update()
+        if self.qimage:
+            self.qpixmap = QPixmap(self.qlabel_image.size())
+            self.qpixmap.fill(QtCore.Qt.darkGray)
+            self.qimage_scaled = self.qimage.scaled(self.qlabel_image.width(), self.qlabel_image.height(), QtCore.Qt.KeepAspectRatio)
+            self.update()
 
     def loadImage(self, imagePath, valid=True, feather=0):
         ''' To load and display new image.'''      
@@ -56,6 +57,7 @@ class ImageViewer:
         ''' Display result image '''
                 
         if img is None:
+            self.qlabel_image.clear()
             return
         
         qimg_format = QImage.Format.Format_RGB888 if len(img.shape) == 3 else QImage.Format.Format_Indexed8

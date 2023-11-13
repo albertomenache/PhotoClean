@@ -76,6 +76,8 @@ class Iwindow(QtWidgets.QMainWindow, gui):
         if result is not None:
             self.result_viewer.showImage(result)
             self.logs[cntr]['result'] = result
+        else:
+            self.result_viewer.qlabel_image.clear()
 
     def selectDir(self):
         ''' Select a directory, make list of images in it and display the first image in the list. '''
@@ -109,8 +111,11 @@ class Iwindow(QtWidgets.QMainWindow, gui):
 
     def resizeEvent(self, _evt):
         if self.cntr >= 0:
-            self.image_viewer.onResize()
-            self.result_viewer.onResize()
+            try:
+                self.image_viewer.onResize()
+                self.result_viewer.onResize()
+            except Exception as e:
+                pass
             
     def featherChanged(self):
         if self.cntr >= 0:
@@ -159,7 +164,7 @@ class Iwindow(QtWidgets.QMainWindow, gui):
         
     def processAll(self):
         for i in range(self.numImages):
-            result = processImage(self.logs[i]['path'])
+            _img, result = processImage(self.logs[i]['path'])
             if result is not None:
                 self.logs[i]['result'] = result
                 self.saveResult(i)         

@@ -57,7 +57,10 @@ def processImage(imagePath, valid=True, feather=0, img=None):
         
     print (minLen)
 
-    lines = cv2.HoughLinesP(edges, rho=1, theta=np.pi/500, threshold=10, minLineLength=minLen-10, maxLineGap=50)
+    try:
+        lines = cv2.HoughLinesP(edges, rho=1, theta=np.pi/500, threshold=10, minLineLength=minLen-10, maxLineGap=50)
+    except:
+        return img, None
 
     lineWidthH = 20
     lineWidthV = 20
@@ -79,13 +82,16 @@ def processImage(imagePath, valid=True, feather=0, img=None):
         else:
             lineWidthV = 0
 
-        for line in lines:
-            if (line[0][0] == line[0][2]):
-                cv2.line(mask, (line[0][0], maxLen), (line[0][2], 0), 255, lineWidthV, cv2.FILLED)
-            if (line[0][1] == line[0][3]):
-                cv2.line(mask, (maxLen, line[0][1]), (0, line[0][3]), 255, lineWidthH, cv2.FILLED)
+        try:
+            for line in lines:
+                if (line[0][0] == line[0][2]):
+                    cv2.line(mask, (line[0][0], maxLen), (line[0][2], 0), 255, lineWidthV, cv2.FILLED)
+                if (line[0][1] == line[0][3]):
+                    cv2.line(mask, (maxLen, line[0][1]), (0, line[0][3]), 255, lineWidthH, cv2.FILLED)
+        except:
+            return img, None
     else:
-        return img
+        return img, None
                 
     #mask = cv2.cvtColor(mask, cv2.COLOR_GRAY2BGR)
     #return mask
